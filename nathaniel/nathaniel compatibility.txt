@@ -1,0 +1,62 @@
+COMPATIBILITY LIST FOR NATHANIEL
+
+Known Incompatibilities:
+Revised HLA table component of Refinements; makes Nathaniel's items unusable 
+
+Other WeiDU mods should be compatible with Nathaniel, but these are the mods it has been tested with:
+
+Allison
+Alora
+Amber
+Bruce Collection
+BW Herbs and Potions
+Chloe
+CoM Encounters
+Cloak of the Shield upgrade
+Dungeon Be Gone
+Dark Ritual
+Ding0 Tweak Pack
+Divine Remix
+Ease of Use (however, multi-romancing patches are used entirely at the player's risk)
+Edwin Romance
+Every Mod and Dog
+Fade
+Fonick
+G3 Tweak Pack
+Kelsey
+Keto
+Kindrek
+Kitanya beta
+Kivan of Shilmista
+Improved Asylum
+Item Upgrades
+JPS Portraits
+Natural Selection
+Ninafer
+NPC Flirt Pack
+NPC Kit Pack
+NPC Tweak Pack
+Munch Mod
+One Pixel Productions
+Oversight
+Pocket Plane Banter Accelerator
+Pocket Plane Banter Pack
+PPG One Day NPCs
+Quest Pack
+Saerileth
+Solaufein
+Song and Silence
+Sorcerer's Place Collection
+Subraces Mod
+Tashia
+Tsujatha
+Turnip Golem Encounter
+Underrepresented Items
+Unfinished Business
+Unusual Oddities Shop
+Valen
+Vanim
+Victor's BGII Improvements
+Virtue
+Wikaede
+Yasraena

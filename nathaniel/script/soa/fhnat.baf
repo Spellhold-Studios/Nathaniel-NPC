@@ -1,0 +1,1302 @@
+//CONTENTS
+//Initial meeting script
+//Romance eligibility script
+//Friendship eligibility script
+//Friendship talk script
+//Romance talk script
+//If Nathaniel is not kidnapped
+//Rest talk timer setting
+//Talks after rest
+//Departure due to reputation
+//Making Nathaniel count as a romantic partner
+//Making quest continue independently of friendship or romance
+//Nightmare talk
+//Imoen talk
+//Mayonna eligibility
+//Interjections
+               //PC dual-classing to a thief
+               //Underdark
+               //Quest stuff
+               //Anomen romance
+               //Complaint about not seeing Brega
+//Setting Terl's arrival time
+//Terl's arrival
+//Avery's note reveals Trademeet
+//Post-Bryce talk
+//Vampire resurrection
+//NPC conflicts
+//Flirts
+//String fixer
+
+//Initial meeting script
+
+IF
+Global("FHMetNath","GLOBAL",0)
+See(Player1)
+THEN
+RESPONSE #100
+Dialogue(Player1)
+END
+
+//Romance eligibility script
+
+IF
+InParty(Myself)
+Global("CheckNathMatch","GLOBAL",0)
+Gender(Player1,MALE)
+!Class(Player1,THIEF_ALL)
+OR(3)
+Alignment(Player1,MASK_GOOD)
+Alignment(Player1,LAWFUL_NEUTRAL)
+Class(Player1,DRUID_ALL)
+OR(3)
+Race(Player1,HUMAN)
+Race(Player1,HALF_ELF)
+Race(Player1,ELF)
+THEN
+RESPONSE #100
+SetGlobal("CheckNathMatch","GLOBAL",1)
+SetGlobal("NathMatch","GLOBAL",1)
+END
+
+IF
+InParty(Myself)
+Global("NathMatch","GLOBAL",1)
+Global("NathLoveTalk","LOCALS",0)
+Global("NathRomanceActive","GLOBAL",0)
+THEN
+RESPONSE #100
+RealSetGlobalTimer("NathLoveTalkTime","GLOBAL",1000)
+SetGlobal("NathLoveTalk","LOCALS",1)
+SetGlobal("NathRomanceActive","GLOBAL",1)
+END
+
+//Friendship eligibility script
+
+IF
+InParty(Myself)
+Global("NathMatch","GLOBAL",0)
+Global("NathFriend","GLOBAL",0)
+Global("NathFriendCheck","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("NathFriendCheck","GLOBAL",1)
+SetGlobal("NathFriend","GLOBAL",1)
+SetGlobal("NathFriendTalk","LOCALS",1)
+RealSetGlobalTimer("NathFriendTalkTime","GLOBAL",1000)
+END
+
+//Friendship talk script
+
+IF
+InParty(Myself)
+See(Player1)
+Global("NathFriend","GLOBAL",1)
+Global("NathFriendMatch","GLOBAL",1)
+OR(14)
+Global("NathFriendTalk","LOCALS",2)
+Global("NathFriendTalk","LOCALS",4)
+Global("NathFriendTalk","LOCALS",6)
+Global("NathFriendTalk","LOCALS",8)
+Global("NathFriendTalk","LOCALS",10)
+Global("NathFriendTalk","LOCALS",12)
+//LT14: triggered at rest
+Global("NathFriendTalk","LOCALS",16)
+Global("NathFriendTalk","LOCALS",18)
+Global("NathFriendTalk","LOCALS",20)
+Global("NathFriendTalk","LOCALS",22)
+Global("NathFriendTalk","LOCALS",24)
+Global("NathFriendTalk","LOCALS",26)
+Global("NathFriendTalk","LOCALS",28)
+Global("NathFriendTalk","LOCALS",30)
+RealGlobalTimerExpired("NathFriendTalkTime","GLOBAL")
+THEN
+RESPONSE #100
+Interact(Player1)
+END
+
+//FT10
+
+IF
+InParty(Myself)
+See(Player1)
+Global("NathFriend","GLOBAL",1)
+Global("NathFriendMatch","GLOBAL",1)
+GlobalGT("TalkAvery","GLOBAL",0)
+Global("FHNRestartFT10","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("FHNRestartFT10","GLOBAL",1)
+RealSetGlobalTimer("FHFFT10Timer","GLOBAL",350)
+END
+
+IF
+InParty(Myself)
+Global("FHFarenFriend","GLOBAL",1)
+!AreaType(DUNGEON)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+CombatCounter(0)
+RealGlobalTimerExpired("FHNFT10Timer","GLOBAL")
+Global("FHFarenFriendTalk","LOCALS",19)
+THEN
+RESPONSE #100
+SetGlobal("NathFriendTalk","LOCALS",20)
+END
+
+//FT15
+
+IF
+InParty(Myself)
+See(Player1)
+Global("NathFriend","GLOBAL",1)
+Global("NathFriendMatch","GLOBAL",1)
+Global("FHBryceHere","GLOBAL",3)
+Global("FHNRestartFT15","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("FHNRestartFT15","GLOBAL",1)
+RealSetGlobalTimer("FHNFT15Timer","GLOBAL",350)
+END
+
+IF
+InParty(Myself)
+Global("FHFarenFriend","GLOBAL",1)
+!AreaType(DUNGEON)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+CombatCounter(0)
+RealGlobalTimerExpired("FHNFT15Timer","GLOBAL")
+Global("NathFriendTalk","LOCALS",29)
+THEN
+RESPONSE #100
+SetGlobal("NathFriendTalk","LOCALS",30)
+END
+
+//FT1, FT2, FT3, FT4, FT5, FT6, FT9, FT10, FT11, FT12
+
+IF
+InParty(Myself)
+Global("NathFriend","GLOBAL",1)
+!AreaType(DUNGEON)
+See(Player1)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+CombatCounter(0)
+OR(10)
+Global("NathFriendTalk","LOCALS",1)
+Global("NathFriendTalk","LOCALS",3)
+Global("NathFriendTalk","LOCALS",5)
+Global("NathFriendTalk","LOCALS",7)
+Global("NathFriendTalk","LOCALS",9)
+Global("NathFriendTalk","LOCALS",11)
+Global("NathFriendTalk","LOCALS",17)
+Global("NathFriendTalk","LOCALS",19)
+Global("NathFriendTalk","LOCALS",21)
+Global("NathFriendTalk","LOCALS",23)
+RealGlobalTimerExpired("NathFriendTalkTime","GLOBAL")
+THEN
+RESPONSE #100
+IncrementGlobal("NathFriendTalk","LOCALS",1)
+END
+
+//Romance talk script
+
+IF
+InParty(Myself)
+See(Player1)
+OR(2)
+Global("NathRomanceActive","GLOBAL",1)
+Global("NathRomanceActive","GLOBAL",2)
+OR(19)
+Global("NathLoveTalk","LOCALS",2)
+Global("NathLoveTalk","LOCALS",4)
+Global("NathLoveTalk","LOCALS",6)
+Global("NathLoveTalk","LOCALS",8)
+Global("NathLoveTalk","LOCALS",10)
+Global("NathLoveTalk","LOCALS",12)
+Global("NathLoveTalk","LOCALS",14)
+//LT8: triggered at rest
+Global("NathLoveTalk","LOCALS",18)
+Global("NathLoveTalk","LOCALS",20)
+Global("NathLoveTalk","LOCALS",22)
+Global("NathLoveTalk","LOCALS",24)
+Global("NathLoveTalk","LOCALS",26)
+Global("NathLoveTalk","LOCALS",28)
+Global("NathLoveTalk","LOCALS",30)
+Global("NathLoveTalk","LOCALS",32)
+Global("NathLoveTalk","LOCALS",34)
+Global("NathLoveTalk","LOCALS",36)
+//LT 19: triggered at rest
+Global("NathLoveTalk","LOCALS",40)
+Global("NathLoveTalk","LOCALS",44)
+RealGlobalTimerExpired("NathLoveTalkTime","GLOBAL")
+THEN
+RESPONSE #100
+Interact(Player1)
+END
+
+//LT11
+
+IF
+InParty(Myself)
+Global("NathRomanceActive","GLOBAL",1)
+Global("NathLoveTalk","LOCALS",21)
+GlobalGT("TalkAvery","GLOBAL",0)
+Global("FHNRestartLT11","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("FHNRestartLT11","GLOBAL",1)
+RealSetGlobalTimer("FHNLT11Timer","GLOBAL",350)
+END
+
+IF
+InParty(Myself)
+Global("NathRomanceActive","GLOBAL",1)
+!AreaType(DUNGEON)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+CombatCounter(0)
+RealGlobalTimerExpired("FHNLT11Timer","GLOBAL")
+Global("NathLoveTalk","LOCALS",21)
+THEN
+RESPONSE #100
+SetGlobal("NathLoveTalk","LOCALS",22)
+END
+
+//LT18
+
+IF
+InParty(Myself)
+Global("NathRomanceActive","GLOBAL",1)
+Global("NathLoveTalk","LOCALS",35)
+GlobalGT("FHBryceHere","GLOBAL",0)
+Global("FHNRestartLT18","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("FHNRestartLT18","GLOBAL",1)
+RealSetGlobalTimer("FHNLT18Timer","GLOBAL",350)
+END
+
+IF
+InParty(Myself)
+Global("NathRomanceActive","GLOBAL",1)
+!AreaType(DUNGEON)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+CombatCounter(0)
+RealGlobalTimerExpired("FHNLT18Timer","GLOBAL")
+Global("NathLoveTalk","LOCALS",35)
+THEN
+RESPONSE #100
+SetGlobal("NathLoveTalk","LOCALS",36)
+END
+
+IF
+InParty(Myself)
+OR(2)
+Global("NathRomanceActive","GLOBAL",1)
+Global("NathRomanceActive","GLOBAL",2)
+!AreaType(DUNGEON)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)
+OR(12)
+Global("NathLoveTalk","LOCALS",1)
+Global("NathLoveTalk","LOCALS",3)
+Global("NathLoveTalk","LOCALS",5)
+Global("NathLoveTalk","LOCALS",7)
+Global("NathLoveTalk","LOCALS",9)
+Global("NathLoveTalk","LOCALS",11)
+Global("NathLoveTalk","LOCALS",13)
+Global("NathLoveTalk","LOCALS",19)
+Global("NathLoveTalk","LOCALS",23)
+Global("NathLoveTalk","LOCALS",25)
+Global("NathLoveTalk","LOCALS",31)
+Global("NathLoveTalk","LOCALS",33)
+RealGlobalTimerExpired("NathLoveTalkTime","GLOBAL")
+THEN
+RESPONSE #100
+IncrementGlobal("NathLoveTalk","LOCALS",1)
+END
+
+//LT21
+
+IF
+InParty(Myself)
+See(Player1)
+GlobalGT("FHNathVampire","GLOBAL",0)
+Global("NathRomanceActive","GLOBAL",2)
+!AreaType(DUNGEON)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)
+GlobalLT("NathLoveTalk","LOCALS",42)
+Global("FHRestartLT21","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("FHRestartLT21","GLOBAL",1)
+RealSetGlobalTimer("NathLoveTalkTime","GLOBAL",350)
+END
+
+IF
+InParty(Myself)
+See(Player1)
+Global("NathRomanceActive","GLOBAL",2)
+GlobalLT("NathLoveTalk","LOCALS",42)
+Global("FHRestartLT21","GLOBAL",1)
+GlobalGT("FHNathVampire","GLOBAL",0)
+!AreaType(DUNGEON)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+RealGlobalTimerExpired("NathLoveTalkTime","GLOBAL")
+THEN
+RESPONSE #100
+SetGlobal("NathLoveTalk","LOCALS",42)
+END
+
+IF
+InParty(Myself)
+See(Player1)
+Global("NathRomanceActive","GLOBAL",2)
+Global("NathLoveTalk","LOCALS",42)
+RealGlobalTimerExpired("NathLoveTalkTime","GLOBAL")
+THEN
+RESPONSE #100
+Interact(Player1)
+END
+
+//LT22 - after kidnap
+
+IF
+InParty(Myself)
+See(Player1)
+GlobalGT("FHNathVampire","GLOBAL",0)
+Global("NathRomanceActive","GLOBAL",2)
+!AreaType(DUNGEON)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)
+Global("FHPostVamp","GLOBAL",2)
+Global("NathLoveTalk","LOCALS",43)
+RealGlobalTimerExpired("NathLoveTalkTime","GLOBAL")
+THEN
+RESPONSE #100
+SetGlobal("NathLoveTalk","LOCALS",44)
+END
+
+//LT22 - if not kidnapped
+
+IF
+InParty(Myself)
+See(Player1)
+Global("FHNoKidnap","GLOBAL",1)
+Global("NathRomanceActive","GLOBAL",2)
+!AreaType(DUNGEON)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)
+Global("NathLoveTalk","LOCALS",43)
+RealGlobalTimerExpired("NathLoveTalkTime","GLOBAL")
+THEN
+RESPONSE #100
+SetGlobal("NathLoveTalk","LOCALS",44)
+END
+
+//If Nathaniel is not kidnapped
+
+IF
+InParty("Nath")
+Global("C6BodhiFight","AR809",1)
+Global("FHNathVampire","GLOBAL",0)
+Global("FHNathRomance","GLOBAL",1)
+Global("FHNoKidnap","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("FHNoKidnap","GLOBAL",1)
+SetGlobal("FHNathSleep","GLOBAL",1)
+SetGlobal("NathLoveTalk","LOCALS",43)
+RealSetGlobalTimer("NathLoveTalkTime","GLOBAL",2400)
+END
+
+//Rest talk timer setting
+
+IF
+InParty(Myself)
+Global("DreamTimerStarted","GLOBAL",0)
+THEN
+RESPONSE #100
+RealSetGlobalTimer("DreamTalk","GLOBAL",180)
+SetGlobal("DreamTimerStarted","GLOBAL",1)
+END
+
+//Talks after rest
+
+IF
+InParty(Myself)
+PartyRested()
+OR(2)
+Global("NathRomanceActive","GLOBAL",1)
+Global("NathRomanceActive","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+Global("NathMatch","GLOBAL",1)
+See(Player1)
+!AreaType(DUNGEON)
+CombatCounter(0)
+OR(4)
+Global("NathLoveTalk","LOCALS",17)
+Global("NathLoveTalk","LOCALS",27)
+Global("NathLoveTalk","LOCALS",29)
+Global("NathLoveTalk","LOCALS",39)
+RealGlobalTimerExpired("NathLoveTalkTime","GLOBAL")
+THEN
+RESPONSE #100
+IncrementGlobal("NathLoveTalk","LOCALS",1)
+END
+
+IF
+InParty(Myself)
+PartyRested()
+Global("NathFriend","GLOBAL",1)
+Global("NathFriendMatch","GLOBAL",1)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+See(Player1)
+!AreaType(DUNGEON)
+CombatCounter(0)
+OR(3)
+Global("NathFriendTalk","LOCALS",15)
+Global("NathFriendTalk","LOCALS",25)
+Global("NathFriendTalk","LOCALS",27)
+RealGlobalTimerExpired("NathFriendTalkTime","GLOBAL")
+THEN
+RESPONSE #100
+IncrementGlobal("NathFriendTalk","LOCALS",1)
+END
+
+IF
+InParty(Myself)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+Global("FHSoAMorningAfter","LOCALS",1)
+PartyRested()
+THEN
+RESPONSE #100
+Wait(1)
+StartDialogueNoSet(Player1)
+END
+
+//Leaving at rep 9//
+
+IF
+InParty(Myself)
+!Global("FHNathRomance","GLOBAL",1)
+!Global("NathRomanceActive","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+CombatCounter(0)
+ReputationLT(Player1,9)
+THEN
+RESPONSE #100
+SetGlobal("NathGoes","GLOBAL",1)
+END
+
+IF
+InParty(Myself)
+OR(2)
+Global("FHNathRomance","GLOBAL",1)
+Global("NathRomanceActive","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+CombatCounter(0)
+ReputationLT(Player1,9)
+THEN
+RESPONSE #100
+SetGlobal("NathGoes2","GLOBAL",1)
+END
+
+IF
+InParty(Myself)
+OR(2)
+Global("FHNathRomance","GLOBAL",1)
+Global("NathRomanceActive","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+CombatCounter(0)
+Global("NathGoes3","GLOBAL",0)
+ReputationLT(Player1,8)
+THEN
+RESPONSE #100
+SetGlobal("NathGoes3","GLOBAL",1)
+END
+
+IF
+InParty(Myself)
+OR(3)
+Global("NathGoes","GLOBAL",1)
+Global("NathGoes2","GLOBAL",1)
+Global("NathGoes3","GLOBAL",1)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+CombatCounter(0)
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END
+
+//Making Nathaniel count as a romantic partner
+IF
+GlobalGT("NathLoveTalk","LOCALS",30)
+OR(2)
+Global("NathRomanceActive","GLOBAL",1)
+Global("NathRomanceActive","GLOBAL",2)
+Global("FHNathRomance","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("FHNathRomance","GLOBAL",1)
+END
+
+//...or not//
+IF
+Global("FHNathRomance","GLOBAL",1)
+Global("NathRomanceActive","GLOBAL",3)
+THEN
+RESPONSE #100
+SetGlobal("FHNathRomance","GLOBAL",0)
+END
+
+//Making quest continue independently of friendship or romance
+
+IF
+InParty(Myself)
+OR(2)
+Global("NathRomanceActive","GLOBAL",3)
+Global("NathFriend","GLOBAL",2)
+Global("FHAveryLetter","GLOBAL",0)
+Global("FHEnd1","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("FHEnd1","GLOBAL",1)
+SetGlobalTimer("FHTerlArrive","GLOBAL",TWO_DAYS)
+END
+
+IF
+InParty(Myself)
+OR(2)
+Global("NathRomanceActive","GLOBAL",3)
+Global("NathFriend","GLOBAL",2)
+Global("FHBryceHere","GLOBAL",0)
+Global("TalkAvery","GLOBAL",1)
+Global("FHEnd2","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("FHEnd2","GLOBAL",1)
+SetGlobalTimer("FHBryceArrive","GLOBAL",SEVEN_DAYS)
+END
+
+//Nightmare talk
+IF
+InParty(Myself)
+Global("HadJonDream2","GLOBAL",1)
+Global("FHNathNightmare","LOCALS",0)
+OR(3)
+Global("NathRomanceActive","GLOBAL",1)
+Global("NathRomanceActive","GLOBAL",2)
+Global("NathFriend","GLOBAL",1)
+THEN
+RESPONSE #100
+SetGlobal("FHNathNightmare","LOCALS",1)
+RealSetGlobalTimer("FHNathNightmareTime","GLOBAL",1000)
+END
+
+IF
+InParty(Myself)
+CombatCounter(0)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+RealGlobalTimerExpired("FHNathNightmareTime","GLOBAL")
+Global("FHNathNightmare","LOCALS",1)
+THEN
+RESPONSE #100
+SetGlobal("FHNathNightmare","LOCALS",2)
+END
+
+IF
+InParty(Myself)
+See(Player1)
+Global("FHNathNightmare","LOCALS",2)
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END
+
+//Imoen talk
+
+IF
+InParty(Myself)
+OR(2)
+GlobalGT("NathLoveTalk","LOCALS",2)
+GlobalGT("NathFriendTalk","LOCALS",2)
+GlobalLT("Chapter","GLOBAL",4)
+Global("FHNAskImoen","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("FHNAskImoen","GLOBAL",1)
+RealSetGlobalTimer("FHNAskImoenTime","GLOBAL",1000)
+END
+
+IF
+InParty(Myself)
+See(Player1)
+Global("FHNAskImoen","GLOBAL",1)
+GlobalLT("Chapter","GLOBAL",4)
+CombatCounter(0)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+RealGlobalTimerExpired("FHNAskImoenTime","GLOBAL")
+THEN
+RESPONSE #100
+SetGlobal("FHNAskImoen","GLOBAL",2)
+END
+
+IF
+InParty(Myself)
+See(Player1)
+Global("FHNAskImoen","GLOBAL",2)
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END
+
+//Mayonna eligibility
+
+IF
+Global("FHMayonEligible","GLOBAL",1)
+OR(2)
+Global("NathFriend","GLOBAL",2)
+Global("NathRomanceActive","GLOBAL",3)
+THEN
+RESPONSE #100
+SetGlobal("FHMayonEligible","GLOBAL",0)
+END
+
+//Interjections
+
+//PC dual-classing to a thief
+
+IF
+InParty(Myself)
+See(Player1)
+Class(Player1,THIEF_ALL)
+Global("NathRomanceActive","GLOBAL",1)
+Global("NathThief1","GLOBAL",0)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+SetGlobal("NathThief1","GLOBAL",1)
+END
+
+IF
+InParty(Myself)
+See(Player1)
+Class(Player1,THIEF_ALL)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+Global("NathRomanceActive","GLOBAL",2)
+Global("NathThief2","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("NathThief2","GLOBAL",1)
+END
+
+IF
+InParty(Myself)
+See(Player1)
+OR(2)
+Global("NathThief1","GLOBAL",1)
+Global("NathThief2","GLOBAL",1)
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END
+
+//Anomen sympathy
+
+IF
+InParty(Myself)
+InParty("Anomen")
+Global("SaerkPlot","GLOBAL",1)
+!Global("TalkedCor","GLOBAL",1)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("Anomen",CD_STATE_NOTVALID)
+Global("FHAnomenSympathy","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("FHAnomenSympathy","GLOBAL",1)
+END
+
+IF
+InParty(Myself)
+See("Anomen")
+Global("FHAnomenSympathy","GLOBAL",1)
+THEN
+RESPONSE #100
+StartDialogueNoSet("Anomen")
+END
+
+//Underdark
+
+//Phaere interjections//
+IF
+InParty(Myself)
+See(Player1)
+See("Phaere")
+!StateCheck(Player1,CD_STATE_NOTVALID)
+Global("PhaereInnuendo","GLOBAL",1)
+Global("FHUDUpset1","LOCALS",0)
+AreaCheck("AR2200")
+OR(2)
+Global("NathRomanceActive","GLOBAL",2)
+Global("FHNathRomance","GLOBAL",1)
+THEN
+RESPONSE #100
+SetGlobal("FHUDUpset1","LOCALS",1)
+END
+
+IF
+InParty(Myself)
+See(Player1)
+See("Phaere")
+!StateCheck(Player1,CD_STATE_NOTVALID)
+Global("PhaereInnuendo","GLOBAL",2)
+Global("FHUDUpset2","LOCALS",0)
+OR(2)
+Global("NathRomanceActive","GLOBAL",2)
+Global("FHNathRomance","GLOBAL",1)
+THEN
+RESPONSE #100
+SetGlobal("FHUDUpset2","LOCALS",1)
+END
+
+IF
+InParty(Myself)
+See(Player1)
+See("Phaere")
+!StateCheck(Player1,CD_STATE_NOTVALID)
+Global("PhaereInnuendo","GLOBAL",3)
+Global("FHUDUpset3","LOCALS",0)
+OR(2)
+Global("NathRomanceActive","GLOBAL",2)
+Global("FHNathRomance","GLOBAL",1)
+THEN
+RESPONSE #100
+SetGlobal("FHUDUpset3","LOCALS",1)
+END
+
+IF
+InParty(Myself)
+See(Player1)
+!Range("Phaere",6)
+OR(3)
+Global("FHUDUpset1","LOCALS",1)
+Global("FHUDUpset2","LOCALS",1)
+Global("FHUDUpset3","LOCALS",1)
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END
+
+//If Charname sleeps with a Drow
+IF
+InParty(Myself)
+Global("sleptWithDAdrow23","GLOBAL",1)
+Global("FHSleptWithDrowWoman","GLOBAL",0)
+!Range("DADROW23",6)
+OR(2)
+Global("NathRomanceActive","GLOBAL",2)
+GlobalGT("NathLoveTalk","LOCALS",34)
+THEN
+RESPONSE #100
+SetGlobal("FHSleptWithDrowWoman","GLOBAL",1)
+END
+
+IF
+InParty(Myself)
+See(Player1)
+Global("FHSleptWithDrowWoman","GLOBAL",1)
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END
+
+IF
+InParty(Myself)
+Global("FHSleptWithDrowWoman","GLOBAL",1)
+Global("FHDumped","GLOBAL",0)
+Global("ElhanFinishedSpeaking","GLOBAL",1)
+THEN
+RESPONSE #100
+SetGlobal("FHDumped","GLOBAL",1)
+END
+
+IF
+InParty(Myself)
+See(Player1)
+Global("FHDumped","GLOBAL",1)
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END
+
+//Complaint about not seeing Brega
+
+IF
+InParty(Myself)
+GlobalTimerExpired("FHSeeBrega","GLOBAL")
+Global("FHBrega","GLOBAL",0)
+Global("TalkAvery","GLOBAL",0)
+Global("FHSeeBregaComplain","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("FHSeeBregaComplain","GLOBAL",1)
+END
+
+IF
+InParty(Myself)
+See(Player1)
+Global("FHSeeBregaComplain","GLOBAL",1)
+Global("FHBrega","GLOBAL",0)
+GlobalTimerExpired("FHSeeBrega","GLOBAL")
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END
+
+//Post-Brega interjection
+
+IF
+InParty(Myself)
+See(Player1)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+Global("FHBregaUpset","GLOBAL",1)
+THEN
+RESPONSE #100
+SetGlobal("FHBregaUpset","GLOBAL",2)
+END
+
+IF
+InParty(Myself)
+See(Player1)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+Global("FHBregaUpset","GLOBAL",2)
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END
+
+//Anomen romance
+
+IF
+InParty(Myself)
+InParty("Anomen")
+Global("AnomenRomanceActive","GLOBAL",2)
+Global("NathFriend","GLOBAL",1)
+Global("FHAnomenTalk","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("FHAnomenTalk","GLOBAL",1)
+RealSetGlobalTimer("FHAnomenTalkTimer","GLOBAL",500)
+END
+
+IF
+InParty(Myself)
+InParty("Anomen")
+CombatCounter(0)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("Anomen",CD_STATE_NOTVALID)
+Global("FHAnomenTalk","GLOBAL",1)
+RealGlobalTimerExpired("FHAnomenTalkTimer","GLOBAL")
+THEN
+RESPONSE #100
+SetGlobal("FHAnomenTalk","GLOBAL",2)
+END
+
+//Aerie romance
+
+IF
+InParty(Myself)
+InParty("Aerie")
+Global("AerieRomanceActive","GLOBAL",2)
+Global("NathFriend","GLOBAL",1)
+Global("FHAerieTalk","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("FHAerieTalk","GLOBAL",1)
+RealSetGlobalTimer("FHAerieTalkTimer","GLOBAL",500)
+END
+
+IF
+InParty(Myself)
+CombatCounter(0)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("Aerie",CD_STATE_NOTVALID)
+Global("FHAerieTalk","GLOBAL",1)
+RealGlobalTimerExpired("FHAerieTalkTimer","GLOBAL")
+THEN
+RESPONSE #100
+SetGlobal("FHAerieTalk","GLOBAL",2)
+END
+
+//Neb interjection
+IF
+InParty(Myself)
+PartyHasItem("MISC9H")
+Global("FHNeb","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("FHNeb","GLOBAL",1)
+END
+
+IF
+InParty(Myself)
+See(Player1)
+CombatCounter(0)
+Global("FHNeb","GLOBAL",1)
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END
+
+//Tanner warning
+IF
+InParty(Myself)
+See(Player1)
+AreaCheck("AR0502")
+Global("FHTanner","AR0502",0)
+THEN
+RESPONSE #100
+SetGlobal("FHTanner","AR0502",1)
+END
+
+IF
+InParty(Myself)
+See(Player1)
+Global("FHTanner","AR0502",1)
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END
+
+//Firkraag interjection
+
+IF
+InParty(Myself)
+See(Player1)
+GlobalGT("Kidnap","GLOBAL",0)
+AreaCheck("AR1201")
+Global("FHFirkraagWarn","AR1201",0)
+CombatCounter(0)
+THEN
+RESPONSE #100
+SetGlobal("FHFirkraagWarn","AR1201",1)
+END
+
+IF
+InParty(Myself)
+See(Player1)
+Global("FHFirkraagWarn","AR1201",1)
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END
+
+//Talos interjection
+IF
+InParty(Myself)
+See(Player1)
+PartyHasItem("MISC4Y")
+Global("FHTalosWarn","GLOBAL",0)
+CombatCounter(0)
+THEN
+RESPONSE #100
+SetGlobal("FHTalosWarn","GLOBAL",1)
+END
+
+IF
+InParty(Myself)
+See(Player1)
+Global("FHTalosWarn","GLOBAL",1)
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END
+
+//Terl's arrival//
+
+IF
+InParty(Myself)
+GlobalTimerExpired("FHTerlArrive","GLOBAL")
+OR(2)
+Global("NathRomanceActive","GLOBAL",1)
+Global("NathFriend","GLOBAL",1)
+Global("FHAveryLetter","GLOBAL",0)
+!Dead("FHTerl")
+!Exists("FHTerl")
+!Global("Chapter","GLOBAL",4)
+!Global("Chapter","GLOBAL",5)
+!Global("Chapter","GLOBAL",7)
+AreaType(OUTDOOR)
+CombatCounter(0)
+THEN
+RESPONSE #100
+CreateCreatureObjectOffScreen("FHTERL",Myself,0,0,0)
+SetGlobal("FHAveryLetter","GLOBAL",1)
+END
+
+//Avery's letter reveals Trademeet
+
+IF
+InParty(Myself)
+PartyHasItem("FHNOTE")
+Global("FHShowTrade","LOCALS",0)
+THEN
+RESPONSE #100
+SetGlobal("FHShowTrade","LOCALS",1)
+RevealAreaOnMap("AR2000")
+END
+
+//Complaint if Avery hasn't been seen yet
+
+IF
+InParty(Myself)
+GlobalTimerExpired("NathTM","GLOBAL")
+GlobalGT("FHAveryLetter","GLOBAL",1)
+Global("TalkAvery","GLOBAL",0)
+!Global("Chapter","GLOBAL",4)
+!Global("Chapter","GLOBAL",5)
+!Global("Chapter","GLOBAL",7)
+AreaType(OUTDOOR)
+Global("FHNathWorried","GLOBAL",0)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+SetGlobal("FHNathWorried","GLOBAL",1)
+END
+
+IF
+InParty(Myself)
+See(Player1)
+Global("TalkAvery","GLOBAL",0)
+Global("FHNathWorried","GLOBAL",1)
+GlobalTimerExpired("NathTM","GLOBAL")
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END
+
+//Bryce's arrival
+
+IF
+InParty(Myself)
+GlobalTimerExpired("FHBryceArrive","GLOBAL")
+OR(2)
+Global("NathRomanceActive","GLOBAL",1)
+Global("NathFriend","GLOBAL",1)
+!Dead("FHBRYCE")
+!Exists("FHBryce")
+!Global("Chapter","GLOBAL",4)
+!Global("Chapter","GLOBAL",5)
+!Global("Chapter","GLOBAL",7)
+AreaType(OUTDOOR)
+CombatCounter(0)
+Global("FHBryceExists","GLOBAL",0)
+THEN
+RESPONSE #100
+CreateCreatureObjectOffScreen("FHBRYCE",Myself,0,0,0)
+SetGlobal("FHBryceExists","GLOBAL",1)
+END
+
+IF
+InParty(Myself)
+Global("FHBryceHere","GLOBAL",1)
+THEN
+RESPONSE #100
+SetGlobal("FHBryceHere","GLOBAL",2)
+END
+
+IF
+InParty(Myself)
+Global("FHBryceHere","GLOBAL",2)
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END
+
+//Vampire resurrection
+
+IF
+!InParty(Myself)
+Global("FHNathVampire","GLOBAL",4)
+THEN
+RESPONSE #100
+Wait(1)
+SetGlobal("FHNathVampire","GLOBAL",5)
+StartDialogueNoSet(Player1)
+END
+
+//NPC conflicts
+
+//CN Anomen
+IF
+InParty(Myself)
+Global("FHAnoFight","GLOBAL",1)
+THEN
+RESPONSE #100
+SetLeavePartyDialogFile()
+LeaveParty()
+ChangeAIScript("",DEFAULT)
+ChangeAIScript("useitem",GENERAL)
+ChangeAIScript("FHNATX",SPECIFICS)
+END
+
+//Flirts
+
+IF
+RealGlobalTimerExpired("FHNathFlirt","LOCALS")
+!CombatCounter(0)
+THEN
+RESPONSE #100
+RealSetGlobalTimer("FHNathFlirt","LOCALS",150)
+END
+
+IF
+RealGlobalTimerExpired("FHNathFlirt","LOCALS")
+!Global("FHNoFlirtsPostAvery","GLOBAL",1)
+!Global("FHVampEmotional","GLOBAL",1)
+!Global("NathLoveTalk","LOCALS",25)
+Global("FHNathStartFlirtSOA","GLOBAL",0)
+Global("FHFlirtsDisabled","GLOBAL",0)
+InParty(Myself)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+OR(2)
+Global("NathRomanceActive","GLOBAL",1)
+Global("NathRomanceActive","GLOBAL",2)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+!Range([NEUTRAL],10)
+!AreaCheck("AR2100")
+!AreaCheck("AR2101")
+!AreaCheck("AR2102")
+!AreaCheck("AR2200")
+!AreaCheck("AR2201")
+!AreaCheck("AR2202")
+!AreaCheck("AR2203")
+!AreaCheck("AR2204")
+!AreaCheck("AR2205")
+!AreaCheck("AR2206")
+!AreaCheck("AR2207")
+!AreaCheck("AR2208")
+!AreaCheck("AR2209")
+!AreaCheck("AR2210")
+!AreaCheck("AR2400")
+!AreaCheck("AR2401")
+!AreaCheck("AR2402")
+THEN
+RESPONSE #100
+SetGlobal("FHNathStartFlirtSOA","GLOBAL",1)
+END
+
+IF
+RealGlobalTimerExpired("FHNathFlirt","LOCALS")
+Global("FHNathStartFlirtSOA","GLOBAL",1)
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END
+
+IF
+Global("FHNathFlirtsStartSoA","LOCALS",0)
+OR(2)
+Global("NathRomanceActive","GLOBAL",1)
+Global("NathRomanceActive","GLOBAL",2)
+GlobalGT("NathLoveTalk","LOCALS",8)
+THEN
+RESPONSE #100
+SetGlobal("FHNathFlirtsStartSOA","LOCALS",1)
+RealSetGlobalTimer("FHNathFlirt","LOCALS",1000)
+END
+
+//Romance kill script
+
+IF
+InParty("FHNAT")
+Global("NathMatch","GLOBAL",1)
+!Global("NathRomanceActive","GLOBAL",3)
+OR(13)
+Global("AerieRomanceActive","GLOBAL",2)
+Global("JaheiraRomanceActive","GLOBAL",2)
+Global("ViconiaRomanceActive","GLOBAL",2)
+Global("M#AmberRomanceActive","GLOBAL",2)
+Global("E3FadeRomanceActive","GLOBAL",2)
+Global("FHFarenRomanceActive","GLOBAL",2)
+Global("imoenromanceactive","GLOBAL",2)
+Global("KiaraRomanceActive","GLOBAL",2)
+Global("PGNaliaRomanceActive","GLOBAL",2)
+Global("SaerilethRomanceActive","GLOBAL",2)
+Global("SimeRomanceActive","GLOBAL",2)
+GlobalGT("SolaTalk","GLOBAL",13)
+Global("TashiaRomanceActive","GLOBAL",2)
+THEN
+RESPONSE #100
+SetGlobal("NathRomanceActive","GLOBAL",3)
+END
+
+IF
+InParty("FHNAT")
+Global("NathMatch","GLOBAL",1)
+Global("NathRomanceActive","GLOBAL",2)
+Global("AerieRomanceActive","GLOBAL",1)
+THEN
+RESPONSE #100
+SetGlobal("AerieRomanceActive","GLOBAL",3)
+END
+
+IF
+InParty("FHNAT")
+Global("NathMatch","GLOBAL",1)
+Global("NathRomanceActive","GLOBAL",2)
+Global("JaheiraRomanceActive","GLOBAL",1)
+THEN
+RESPONSE #100
+SetGlobal("JaheiraRomanceActive","GLOBAL",3)
+END
+
+IF
+InParty("FHNAT")
+Global("NathMatch","GLOBAL",1)
+Global("NathRomanceActive","GLOBAL",2)
+Global("ViconiaRomanceActive","GLOBAL",1)
+THEN
+RESPONSE #100
+SetGlobal("ViconiaRomanceActive","GLOBAL",3)
+END
+
+//String fixer
+
+IF
+HotKey(K)
+THEN
+RESPONSE #100
+StartCutSceneMode()
+StartCutScene("FHNFIX")
+END

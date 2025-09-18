@@ -1,0 +1,19 @@
+@0    = ~I understand that you are Nathaniel Aplin-Fletcher, sir.~
+@1    = ~I am Terl, bearing a message from a Lieutenant Avery Fairfax.~
+@225  = ~That's right. Who are you?~
+@226  = ~Avery! Thank you.~
+@227  = ~He asks us to meet him in Trademeet. I'd appreciate it if we could go, <CHARNAME>. I'm sure you'd like him, and it's been a while since we caught up on things.~
+@228  = ~Of course, Nathaniel. We'll make our way there soon.~
+@229  = ~We'll go there soon. It could be something important.~
+@230  = ~I'm not sure we've got time to go and see him, Nathaniel - there are a lot of things I need to do.~
+@231  = ~No. I refuse to go gallivanting after your old army pals.~
+@232  = ~Excellent! Thank you.~
+@233  = ~Nathaniel has heard from Lieutenant Fairfax
+Nathaniel received a letter from an old friend of his and is anxious to make his way to Trademeet to see him.~
+@234  = ~Please - I think we ought to go. He wouldn't have contacted me if it wasn't something important.~
+@235  = ~Very well, then. We can start making our way to see him soon.~
+@236  = ~Fair enough, then. But it had better be something important.~
+@237  = ~All right. I suppose it'll be interesting to meet him.~
+@238  = ~I'm sorry. It's just that there are other things to do.~
+@239  = ~(sigh) Well, in that case I'll have to leave you.~
+

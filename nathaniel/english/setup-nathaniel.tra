@@ -1,0 +1,196 @@
+@0    = ~Nathaniel NPC Mod for BGII~
+@1    = ~Magenta Ioun Stone~
+@2    = ~This ioun stone was bought by <CHARNAME> for Nathaniel as a token of his affection. Its striking magenta hue clashes somewhat with his eyes, but the overall effect is pleasing.
+
+STATISTICS
+
+Equipped Abilities:
++10 % bonus to hit points
+Armor Class Bonus: 1
+Weight: 2
+Usable By:
+ Nathaniel~
+@3    = ~Nathaniel's Ring~
+@4    = ~Despite this ring's lack of magical power, Nathaniel is loath to part with it.~
+@5    = ~Aplin-Fletcher Sword~
+@6    = ~Steeped in the law-enforcement tradition of the Aplin-Fletcher family, this katana gives Nathaniel an extra edge in battle against those who threaten to overturn right and order.
+
+STATISTICS:
+
+Equipped Abilities:
++1 AC bonus
+
+THACO:  +1 bonus
+Damage:  1D8 +1, + 4 against chaotic evil opponents
+Damage type:  slashing
+Weight: 6
+Speed Factor: 4
+Proficiency Type: Katana
+Type:  1-handed
+Usable By:
+ Nathaniel~
+@7    = ~Kajikamu~
+@8    = ~As a wakizashi owned by one outside the culture of Kara-Tur, this sword is a rarity. Clearly Nathaniel had a close bond with the one who made it for him.
+
+STATISTICS:
+
+THACO:  +2 bonus
+Damage:  1D8 +2, + 1 cold damage
+Damage type:  piercing
+Weight: 3
+Speed Factor: 3
+Proficiency Type: Scimitar/wakizashi/ninja-to
+Type:  1-handed
+Usable By:
+ Nathaniel~
+@9    = ~Jan's Cake~
+@10   = ~Jan's intriguing effort to make Nathaniel's favourite food was created in all innocence ... probably. Not only is it flavoured with turnips, it also has a nasty habit of exploding when hurled at enemies, doing 5D6 damage to all within the immediate area. Unfortunately, Nathaniel's ineptitude with missile weapons means that it would be most unwise to let him use it.
+
+Unusable by:
+Nathaniel~
+@11   = ~A note from Lieutenant Fairfax~
+@12   = ~Thaniel,
+I hope this letter reaches you. I've been looking around but I couldn't find any trace so I hired this messenger. I'm in Trademeet, a small town east of Athkatla, in the guard service there.
+I would appreciate it if you could drop by. There are some things we need to catch up on.
+Love,
+Avery~
+@13   = ~Nathaniel's Body~
+@14   = ~Nathaniel was captured by Bodhi and infected with vampirism, forcing you to slay him. There may be some way to revive him, though you don't know what it would be.~
+@15   = ~Nathaniel~
+@16   = ~I'm sorry but I - I can't do this!~ [FHNS1]
+@17   = ~I'll do my best.~ [FHNS2]
+@18   = ~I don't want to be a bother, but I think we should rest soon.~ [FHNS3]
+@19   = ~I'm sure there are better things we could be doing.~ [FHNS4]
+@20   = ~For Shigure's honour!~
+@21   = ~In the name of justice!~ [FHNS6]
+@22   = ~May my blades be true!~ [FHNS7]
+@23   = ~You're not going to hurt my friends!~ [FHNS8]
+@24   = ~I'm ready for you!~ [FHNS9]
+
+
+@27   = ~Please - I need some help!~ [FHNS11]
+@28   = ~Can we sleep in an inn tonight?~ [FHNS12]
+@29   = ~None of these places seem as good as my home...~ [FHNS13]
+@30   = ~Can we just ... do what - we have to do and be out of here?~ [FHNS39]
+@31   = ~Yes?~ [FHNS14]
+@32   = ~Hmm?~ [FHNS15]
+@33   = ~Can I help you?~ [FHNS16]
+@34   = ~What is it?~ [FHNS17]
+@35   = ~I am ready.~ [FHNS18]
+@36   = ~What do you want?~ [FHNS19]
+@37   = ~All right.~ [FHNS20]
+@38   = ~If you think I'm best for it.~ [FHNS21]
+@39   = ~I'll do it.~ [FHNS22]
+@40   = ~That's fine, I'm sure.~ [FHNS23]
+@41   = ~Of course.~ [FHNS24]
+@42   = ~To uphold the law.~ [FHNS25]
+@43   = ~All right, but I won't do anything ... dishonourable.~ [FHNS40]
+@44   = ~In this world of chaos, the law is my guide.~ [FHNS26]
+@45   = ~I strive to protect the innocent.~ [FHNS27]
+@46   = ~Shigure taught me well!~ [FHNS28]
+@47   = ~Damn it!~ [FHNS29]
+@48   = ~Why won't this work?~ [FHNS30]
+@49   = ~Sorry, I can't hold that.~ [FHNS31]
+@50   = ~I'm happy to be travelling with you.~ [FHNS32]
+@51   = ~What you're doing is wrong, and I don't like it.~ [FHNS33]
+@52   = ~I would have thought that you of all people would know better, but it seems that I was wrong.~ [FHNS34]
+@53   = ~Gah! You'll pay for that!~ [FHNS35]
+@54   = ~I want to fight my enemies face to face!~ [FHNS36]
+@55   = ~Why - why did I just do that?~ [FHNS37]
+@56   = ~By the Gods!~ [FHNS38]
+@57   = ~NATHANIEL smiles crookedly at you when you ask him of his past. One of those indirectly affected by your tumultuous entrance to the city of Baldur's Gate, his life was irrevocably changed after you entered its walls. His previous life, carefully ordered within the Flaming Fist, was a hard one but one that he looks back on with a mixture of wistfulness and nostalgia. Nevertheless, he does not seem to bear a grudge against you and respects you for destroying your brother Sarevok. Now his goal is to help you as best he can.~
+@58   = ~Excuse me, <SIRMAAM>? My name's Nathaniel Aplin-Fletcher. I was wondering - have you seen a man about as tall as me, with dark hair? A mercenary. An abrupt manner? His name's Latimer Bryce.~
+@59   = ~Terl~
+@60   = ~Avery~
+@61   = ~Asalie~
+@62   = ~Ioun stones! Get your ioun stones here!~ [FHNAS1]
+@63   = ~Latimer~
+@64   = ~Mayona~
+@65   = ~My confectionaries have graced the palaces of kings!~ [FHNMAY1]
+@66   = ~Few in this city respect the art of the humble confectioner.~ [FHNMAY2]
+@67   = ~The Aplin-Fletcher sword has been enchanted further at <CHARNAME>'s request to give Nathaniel an extra edge in battle against those who threaten to overturn right and order.
+
+STATISTICS:
+
+Equipped Abilities:
++2 AC bonus
+
+THACO:  +3 bonus
+Damage:  1D8 +1, + 4 against chaotic evil opponents
+Damage type:  slashing
+Weight: 6
+Speed Factor: 4
+Proficiency Type: Katana
+Type:  1-handed
+Usable By:
+ Nathaniel~
+@68   = ~Silver Necklace~
+@69   = ~Bought for <CHARNAME> by Nathaniel as a gift, this necklace serves to protect against the chill of magical cold.
+
+Statistics:
+
+Grants the wearer 25% cold protection.~
+@70   = ~Uh!~ [FHNS10]
+@71   = ~All right, but I won't do anything dishonorable.~
+@72   = ~Elenor~
+@73   = ~Following <CHARNAME>'s ascension to godhood, Nathaniel found himself somewhat at a loose end. Though with his fighting skills he could now easily beat many of Amn's greatest warriors, he had never been the type of man to whom adventuring came naturally. However, though he had become more confident in <CHARNAME>'s company, the idea of returning to Baldur's Gate was still not a pleasant one.
+
+After a few days' wandering, he decided to make his way to Trademeet to meet with his erstwhile friend Avery Fairfax, now Captain of the Trademeet Guard. Avery invited Nathaniel to stay with him for a few weeks; the weeks turned to months and the months to years as Nathaniel became a well-known figure amongst the local population, helping the guards with any problems that needed extra manpower. Avery and Nathaniel remained close friends throughout their time together at Trademeet, and though there were inevitable rumours that their friendship was something more, history does not relate how true they were.
+
+Nathaniel's travels with <CHARNAME> had brought him certainty and direction and, eventually, a life he was truly happy with. It was not a life that brought great riches, nor great excitement, and for some such a life would be beneath them. But for Nathaniel, it was what he had always wanted: helping the victims of criminals and being settled in one place with those who he cared for and who cared for him. He had never been a religious man but he would on occasion murmur a quiet prayer of thanks to <CHARNAME> for the good fortune <PRO_HESHE> had brought him.~
+@74   = ~Following <CHARNAME>'s ascension to godhood, Nathaniel found himself somewhat at a loose end. Though with his fighting skills he could now easily beat many of Amn's greatest warriors, he had never been the type of man to whom adventuring came naturally. However, though he had become more confident in <CHARNAME>'s company, the idea of returning to Baldur's Gate was still not a pleasant one.
+
+After a few days' wandering, he decided to make his way to Trademeet to meet with his erstwhile friend Avery Fairfax, now Captain of the Trademeet Guard. Avery invited Nathaniel to stay with him for a few weeks; the weeks turned to months and the months to years as Nathaniel became a well-known figure amongst the local population, helping the guards with any problems that needed extra manpower. Avery and Nathaniel remained close friends throughout their time together at Trademeet, and though there were inevitable rumours that their friendship was something more, history does not relate how true they were.
+
+It was not a life that brought great riches, nor great excitement, and for some such a life would be beneath them. But for Nathaniel, it was what he had always wanted: helping the victims of criminals and being settled in one place with those he cared for and cared for him.~
+@75   = ~Following the battle with Melissan, Nathaniel found himself somewhat at a loose end. Though with his fighting skills he could now easily beat many of Amn's greatest warriors, he had never been the type of man to whom adventuring came naturally. However, though he had become more confident in <CHARNAME>'s company, the idea of returning to Baldur's Gate was still not a pleasant one.
+
+After a few days' wandering in the company of Anomen Delryn, he decided to make his way to Trademeet to meet with his erstwhile friend Avery Fairfax, now Captain of the Trademeet Guard. Avery invited Nathaniel to stay with him for a few weeks; the weeks turned to months and the months to years as Nathaniel became a well-known figure amongst the local population, helping the guards with any problems that needed extra manpower. Avery and Nathaniel remained close friends throughout their time together at Trademeet, and though there were inevitable rumours that their friendship was something more, history does not relate how true they were.
+
+It was not a life that brought great riches, nor great excitement, and for some such a life would be beneath them. But for Nathaniel, it was what he had always wanted: helping the victims of criminals and being settled in one place with those he cared for and cared for him.~
+@76   = ~Following the battle with Melissan, Nathaniel found himself somewhat at a loose end. Though with his fighting skills he could now easily beat many of Amn's greatest warriors, he had never been the type of man to whom adventuring came naturally. However, though he had become more confident in <CHARNAME>'s company, the idea of returning to Baldur's Gate was still not a pleasant one.
+
+After a few days' wandering, he decided to make his way to Trademeet to meet with his erstwhile friend Avery Fairfax, now Captain of the Trademeet Guard. Avery invited Nathaniel to stay with him for a few weeks; the weeks turned to months and the months to years as Nathaniel became a well-known figure amongst the local population, helping the guards with any problems that needed extra manpower. Avery and Nathaniel remained close friends throughout their time together at Trademeet, and though there were inevitable rumours that their friendship was something more, history does not relate how true they were.
+
+He stayed in Trademeet for the rest of his days, though he did leave for the wedding of <CHARNAME> and Anomen Delryn, at which occasion he was the groomsman. The speech he gave was short and sincere; he was smiling too much to carry on at much length.
+
+The life he led was not one that brought great riches, nor great excitement, and for some such a life would be beneath them. But for Nathaniel, it was what he had always wanted: helping the victims of criminals and being settled in one place with those he cared for and cared for him.~
+@77   = ~Nathaniel left the battlefield feeling as though he were frozen. Despite his claim that he would support the decison to Ascend, he had known all along that should he lose <CHARNAME> it would be like losing a part of himself. He had not known that it would feel far worse than that.
+
+After several days of aimless travelling, he decided to make his way to Trademeet. On meeting with Lord Coprith, he was told that his erstwhile friend Avery had been killed by a burglar and a man fitting the description of Latimer had been witnessed around the scene.
+
+Nathaniel went to the cemetery to pay his last respects to Avery. How long he sat there in the sunshine he did not know, but it felt like several hours later when he felt a hand on his shoulder. He looked up to see Latimer there.
+
+He denied having anything to do with Avery's death and in his numb state, Nathaniel could do nothing but believe him. He agreed to travel with Latimer once more, first as a companion and soon after as a lover. Gradually the ache in his throat when he thought of <CHARNAME> disappeared, and gradually the thoughts of <CHARNAME> themselves began to fade. He was, he told himself, truly happy.~
+@78   = ~Nathaniel was eager to make a start on his and <CHARNAME>'s new life together. The old ghosts of the past were no longer haunting Nathaniel and he was happy to travel with <CHARNAME> to Baldur's Gate to show him off to his friends, some of whom he had not seen in years. They bought a house together and <CHARNAME>'s reputation became still more golden, perhaps due to Nathaniel's "unbiased" reports of his conduct during the Bhaalspawn Saga.
+
+Nathaniel and <CHARNAME> lived a comfortable and relatively quiet life. Their time was, however, interrupted by too-often visits by fairweather friends anxious to bathe in <CHARNAME> and Nathaniel's glory. Though such intruders irritated him at first, Nathaniel was delighted that people respected the word of <CHARNAME> once more despite the events of Saradush.
+
+After a couple of years in Baldur's Gate, Nathaniel's father died from a disease of the lungs. Nathaniel had never been good at dealing with loss, and he stayed to his room, snapping at everyone including <CHARNAME> when they tried to comfort him. In the end it was Shigure, his former mentor, who drew him out of it; he spent a long while giving Nathaniel a thorough talking-to about the good fortune in his life.
+
+The fact was that he could hardly disagree. <CHARNAME> gave Nathaniel support, while Nathaniel provided <CHARNAME> with his unwavering devotion, both drawing strength from the other's presence. Through <CHARNAME> he had become stronger and now had the the settled life that he had craved but had always been slightly out of reach. Life for Nathaniel had never been better.~
+@79   = ~Nathaniel was eager to make a start on his and <CHARNAME>'s new life together. The old ghosts of the past were no longer haunting Nathaniel and he was happy to travel with <CHARNAME> to Baldur's Gate to show him off to his friends, some of whom he had not seen in years. They bought a house together and <CHARNAME>'s reputation became still more golden, perhaps due to Nathaniel's "unbiased" reports of his conduct during the Bhaalspawn Saga.
+
+After they had been living in Baldur's Gate for just over three years, Captain Archie Matheson arrived at their door with three girl-children in tow, aged ten, six and five. Their parents had become too ill to look after them so they were now in care of the guards with nowhere to go. Nathaniel and <CHARNAME> took them in, and so their family was formed. Though there was an awkward period of settling, it was not long before Rebecca stopped teaching Elisa to pronounce "Nathaniel" and told her to say "daddy" instead.
+
+The oldest girl, Lucia, was a serious and precocious child who was determined to follow in Nathaniel's footsteps and become a swordswoman. Shigure, Nathaniel's former mentor, took on the role of tutor once more with great gusto. Rebecca, the middle child, was far more high-spirited, developing a knack for magic during adolescence and delighted in summoning "cute kitties" to play with. Elisa, the youngest, had a sharp, sarcastic streak but a wicked sense of humour. As she grew up, she declared that she would become a famous playwright; indeed, when she was an adult, the Sigil Troupe itself performed one of her works.
+
+As with all families, there were several hiccups - one of the most notable was an occasion when Rebecca accidentally set fire to one of Elisa's manuscripts - but for the most part they lived a relatively quiet life, <CHARNAME> and Nathaniel providing a nurturing home for their adopted children and drawing strength from one another's presence. Through <CHARNAME> Nathaniel had become stronger and now had the the settled life that he had craved but had always been slightly out of reach: life for him had never been better.~
+@80   = ~Nathaniel was eager to make a start on his and <CHARNAME>'s new life together. The two of them made their way from the site of the battle against Melissan and began their travels once more, striving to defend innocents and promote harmony in the world. For the most part, they were successful: though <CHARNAME>'s name was regarded with suspicion, his deeds proved to most that he was a good man.
+
+However, Nathaniel felt a nagging discontent. Despite the love he felt for <CHARNAME> and the support he gave him, he could not help but wish for a more stable life with him. He did not feel able to express such a wish, though, and the result was a serious argument resulting in much-regretted insults and Nathaniel storming off, leaving <CHARNAME> in the room where they were staying.
+
+But he had never been good at keeping away from the ones he loved. It took only a couple of hours away from <CHARNAME> for him to realise that it was their love that was important, not where they happened to live. He sheepishly returned to <CHARNAME> as the sun began to set and apologised. History does not relate what they said to one another, but it is suffice to say that the following morning, Nathaniel was firmly of the belief that life had never been better.~
+@81   = ~It was with faint reservations that Nathaniel left the battlefield with <CHARNAME>, and it happened that his doubts were justified. It was not that his love for <CHARNAME> had diminished, nor that he treated Nathaniel poorly, but what <CHARNAME> had become while in Nathaniel's company nagged at the back of his mind. Nathaniel tried to encourage <CHARNAME> to be more compassionate and less chaotic, but to no avail. In the end, he could stand it no longer and did what he had to do.
+
+<CHARNAME> awoke one morning to find Nathaniel gone and a note left for him, reading: "<CHARNAME>, I'm sorry. But I have to go. I think it wasn't the right thing for us. Love always, Nathaniel." <CHARNAME> searched for his lover for some time but no rumours tell whether he found him.~
+@82   = ~The audio files for the Nathaniel NPC mod have been unpacked to your computer.~
+@83   = ~Default portrait by Feuille~
+@84   = ~Choose a portrait for Nathaniel~
+@85   = ~Please install Nathaniel before choosing a portrait~
+@86   = ~Alternate portrait by K'aeloree (NWN remake)~
+@87   = ~Alternate portrait by Amaurea (Milo Ventimiglia)~
+@88   = ~Solaufein Conflict~
+@89   = ~You do not appear have Solaufein installed~
+@90   = ~Kelsey Content~
+@91   = ~You do not appear to have Kelsey installed~

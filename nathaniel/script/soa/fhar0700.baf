@@ -1,0 +1,15 @@
+IF
+Global("FHASALIEExists","AR0700",0)
+THEN
+RESPONSE #100
+SetGlobal("FHASALIEExists","AR0700",1)
+CreateCreature("FHASALIE",[2202.1381],1)
+END
+
+IF
+Global("FHMAYONExists","AR0700",0)
+THEN
+RESPONSE #100
+SetGlobal("FHMAYONExists","AR0700",1)
+CreateCreature("FHMAYON",[1670.1788],1)
+END

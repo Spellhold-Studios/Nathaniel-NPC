@@ -1,0 +1,8 @@
+IF
+Global("FHAVERYExists","AR2000",0)
+GlobalGT("FHAveryLetter","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("FHAVERYExists","AR2000",1)
+CreateCreature("FHAVERY",[528.2308],3)
+END

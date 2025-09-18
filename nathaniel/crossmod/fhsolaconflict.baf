@@ -1,0 +1,55 @@
+IF
+InParty(Myself)
+GlobalGT("SolaTalk","GLOBAL",14)
+OR(2)
+Global("NathRomanceActive","GLOBAL",1)
+Global("NathRomanceActive","GLOBAL",2)
+THEN
+RESPONSE #100
+SetGlobal("NathRomanceActive","GLOBAL",3)
+END
+
+IF
+InParty(Myself)
+See(Player1)
+OR(2)
+Global("NathRomanceActive","GLOBAL",1)
+Global("NathRomanceActive","GLOBAL",2)
+Global("SolaTalk","GLOBAL",10)
+Global("SolaPCTalk","GLOBAL",0)
+Global("FHSola1","LOCALS",0)
+THEN
+RESPONSE #100
+SetGlobal("FHSola1","LOCALS",1)
+Dialogue(Player1)
+END
+
+IF
+InParty(Myself)
+See(Player1)
+OR(2)
+GlobalGT("NathLoveTalk","LOCALS",34)
+Global("NathRomanceActive","GLOBAL",2)
+Global("SolaTalk","GLOBAL",12)
+Global("SolaPCTalk","GLOBAL",0)
+Global("FHSola2","LOCALS",0)
+THEN
+RESPONSE #100
+SetGlobal("FHSola2","LOCALS",1)
+Dialogue(Player1)
+END
+
+IF
+InParty(Myself)
+See(Player1)
+OR(2)
+GlobalGT("NathLoveTalk","LOCALS",34)
+Global("NathRomanceActive","GLOBAL",2)
+Global("SolaTalk","GLOBAL",14)
+Global("SolaPCTalk","GLOBAL",0)
+Global("FHSola3","LOCALS",0)
+THEN
+RESPONSE #100
+SetGlobal("FHSola3","LOCALS",1)
+Dialogue(Player1)
+END

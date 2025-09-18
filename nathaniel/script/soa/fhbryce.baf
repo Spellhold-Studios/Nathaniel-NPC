@@ -1,0 +1,25 @@
+IF
+Global("FHBryceHere","GLOBAL",0)
+!See("Nath")
+InParty("Nath")
+THEN
+RESPONSE #100
+MoveToObject("Nath")
+END
+
+IF
+Global("FHBryceHere","GLOBAL",0)
+See("Nath")
+InParty("Nath")
+!StateCheck("Nath",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+Dialogue(Player1)
+END
+
+IF
+!InParty("Nath")
+THEN
+RESPONSE #100
+EscapeArea()
+END

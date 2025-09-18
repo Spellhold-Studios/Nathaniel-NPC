@@ -1,0 +1,35 @@
+IF
+Global("NathRomanceActive","GLOBAL",2)
+InParty("Nath")
+See("Nath")
+!StateCheck("Nath",CD_STATE_NOTVALID)
+Global("FHBoyNath","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("FHBoyNath","GLOBAL",1)
+StartDialogueNoSet(Player1)
+END
+
+IF
+Global("FHEliTemple","GLOBAL",1)
+Global("FHEnteredTemple","GLOBAL",0)
+!Range("Tran5004",5)
+THEN
+RESPONSE #100
+DialogInterrupt(FALSE)
+MoveToObject("Tran5004")
+SetGlobal("FHEnteredTemple","GLOBAL",1)
+MoveBetweenAreas("AR5004",[583.467],0)
+END
+
+IF
+Global("FHEliTemple","GLOBAL",1)
+Global("FHEnteredTemple","GLOBAL",0)
+Range("Tran5004",5)
+THEN
+RESPONSE #100
+SetGlobal("FHEnteredTemple","GLOBAL",1)
+DialogInterrupt(TRUE)
+EscapeArea()
+MoveBetweenAreas("AR5004",[583.467],0)
+END

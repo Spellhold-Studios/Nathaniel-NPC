@@ -1,0 +1,10 @@
+IF
+OR(2)
+Global("NathRomanceActive","GLOBAL",1)
+Global("NathRomanceActive","GLOBAL",2)
+!InPartyAllowDead("Nath")
+Dead("Nath")
+THEN
+RESPONSE #100
+SetGlobal("NathRomanceActive","GLOBAL",3)
+END

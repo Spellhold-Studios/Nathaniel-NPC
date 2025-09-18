@@ -1,0 +1,12 @@
+IF
+See("Nath")
+Global("FHAsalieSeeNath","GLOBAL",0)
+Global("NathRomanceActive","GLOBAL",2)
+!StateCheck("Nath",CD_STATE_NOTVALID)
+InParty("Nath")
+CombatCounter(0)
+THEN
+RESPONSE #100
+SetGlobal("FHAsalieSeeNath","GLOBAL",1)
+StartDialogNoSet(Player1)
+END

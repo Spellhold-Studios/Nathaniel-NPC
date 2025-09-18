@@ -1,0 +1,68 @@
+//Wounded talks
+IF
+InParty(Myself)
+InParty("Nath")
+HPLT("Nath",25)
+OR(2)
+Alignment(Myself,LAWFUL_NEUTRAL)
+Alignment(Myself,LAWFUL_GOOD)
+Global("FHAHurt","GLOBAL",0)
+HaveSpell(CLERIC_CURE_MEDIUM_WOUNDS)
+THEN
+RESPONSE #100
+SetGlobal("FHAHurt","GLOBAL",1)
+END
+
+IF
+Global("FHAHurt","GLOBAL",1)
+CombatCounter(0)
+THEN
+RESPONSE #100
+StartDialogueNoSet("Nath")
+END
+
+IF
+InParty(Myself)
+Global("FHAnoFight","GLOBAL",1)
+THEN
+RESPONSE #100
+LeaveParty()
+END
+
+IF
+Global("FHAnoFight","GLOBAL",1)
+See("Nath")
+!Dead("Nath")
+THEN
+RESPONSE #100
+EquipMostDamagingMelee()
+AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+OR(2)
+Dead("Nath")
+!Detect("Nath")
+CombatCounter(0)
+!Allegiance(Myself,ENEMY)
+Global("FHAnoFight","GLOBAL",1)
+See([PC])
+THEN
+RESPONSE #100
+SetGlobal("FHAnoFight","GLOBAL",2)
+SetGlobal("FHAKilledNath","GLOBAL",1)
+StartDialogueNoSet(Player1)
+END
+
+IF
+!InParty(Myself)
+OR(2)
+Dead("Nath")
+!Detect("Nath")
+CombatCounter(0)
+Global("FHAnoFight","GLOBAL",1)
+!See([PC])
+THEN
+RESPONSE #100
+EscapeArea()
+END

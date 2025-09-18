@@ -1,0 +1,619 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <style type="text/css">
+    /*<![CDATA[*/
+    <!-- 
+      body {
+        margin: 0;
+        padding: 0;
+        cursor: default;
+        text-align: center;
+        color: #000;
+        background: #e3e3db url('http://spellholdstudios.net/images/sh_bg_main.jpg');
+      }
+      
+      #wrap {
+        text-align: left;
+        margin: 0 auto;
+        margin-top: 20px;
+        width: 88%;
+        font-family: Verdana, Tahoma, Arial, sans-serif;
+        font-size: 12px;
+        color: #333;
+      }
+      
+      #header {
+        text-align: center;
+        background: #e5e5e5;
+        border: 1px solid #781808;
+        border-top: 5px solid #781808;
+        border-bottom: 5px solid #781808;
+        padding: 5px 0 13px 0;
+      }
+      
+      #header .about {
+        margin: 7px 0 0 0;
+        padding: 0;
+        font-style: italic;
+        color: #555;
+      }
+      
+      #header .menu {
+        font-weight: bold;
+        margin: 0;
+        color: #999;
+      }
+      
+      #header .menu a:link,
+      #header .menu a:visited {
+        color: #333;
+      }
+      
+      #maindiv {
+        margin: 0 auto;
+        margin-top: -20px;
+        width: 80%;
+      }
+      
+      #maindiv .content {
+        counter-increment: kman;
+        counter-reset: h2;
+        background-color: #e8e8e6;
+        padding: 0 0 25px 0;
+        margin: 50px auto;
+        border-width: 1px 1px 4px 10px;
+        border-style: solid;
+        border-color: #781808;
+        position: relative;
+        display: block;
+      }
+      
+      #maindiv .content::before {
+        content: counter(kman, lower-roman);
+        font-size: 100%;
+        font-weight: bold;
+        text-align: center;
+        color: #eee;
+        background-color: #781808;
+        width: 35px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        display: block;
+      }
+      
+      h2 {
+        display: block;
+        font-family: Verdana, Trebuchet MS, Arial, serif;
+        text-align: left;
+        text-indent: 30px;
+        padding: 0px;
+        margin: 20px 0 0 0;
+        border-bottom: dotted 2px #d0d0d0;
+        border-top: dotted 2px #d0d0d0;
+        background: #deded9;
+        font-size: 160%;
+      }
+      
+      h2::first-letter {
+        color: #781808;
+        background-color: transparent;
+      }
+      
+      #maindiv p {
+        font-size: 100%;
+        font-style: normal;
+        line-height: 150%;
+        padding: 0px;
+        margin: 10px auto;
+        width: 90%;
+        display: block;
+      }
+      
+      #maindiv address a:link,
+      #maindiv address a:visited {
+        font-weight: bold;
+        text-decoration: underline;
+        background-color: transparent;
+        color: #eaeaea !important;
+        padding-right: 5px;
+        padding-left: 6px;
+      }
+      
+      #maindiv address a:focus,
+      #maindiv address a:hover {
+        text-decoration: none;
+        color: #F1F1F1;
+        border: 0;
+      }
+      
+      #maindiv address a:active {
+        color: #fff;
+        text-decoration: line-through;
+        border: none;
+      }
+      
+      #maindiv address {
+        font-size: 95%;
+        font-style: normal;
+        font-weight: bold;
+        text-decoration: none;
+        color: #BBB;
+        background-color: #781808;
+        padding: 3px 0px 0px;
+        margin: 0px;
+        width: 100%;
+        position: absolute;
+        bottom: -1px;
+        left: 0px;
+        display: block;
+        text-align: right;
+      }
+      
+      #maindiv .important {
+        font-size: 95%;
+        font-family: Verdana;
+        text-align: left;
+        background-color: #F1F1F1;
+        border-top: solid 1px #aaa;
+        border-bottom: solid 1px #aaa;
+        border-left: solid 6px #aaa;
+        border-right: solid 6px #aaa;
+        padding: 10px;
+        margin: 20px auto;
+        width: 80%;
+        line-height: 160%;
+      }
+      
+      #maindiv .important::before {
+        display: none;
+      }
+      
+      #maindiv .important p {
+        font-size: 100%;
+        text-indent: 0px;
+        margin: 5px 0 10px 0;
+      }
+      
+      #maindiv ul {
+        margin: -10px 0 0 30px;
+        *margin-left: 65px;
+      }
+      
+      #maindiv ol {
+        margin: -10px 0 0 35px;
+        *margin-left: 70px;
+      }
+      
+      #maindiv .important ul {
+        margin: -10px 0 0 15px;
+      }
+      
+      #maindiv .important ol {
+        margin: -10px 0 0 20px;
+      }
+      
+      #maindiv ul li {
+        list-style-type: square;
+        line-height: 150%;
+      }
+      
+      #maindiv ol li {
+        line-height: 150%;
+      }
+      
+      .t1 {
+        font-weight: bold;
+        width: 26%;
+        text-align: right;
+        clear: right;
+        float: left;
+        *float: none;
+        *margin-left: 65px;
+        line-height: 22px;
+      }
+      
+      .t2 {
+        text-align: left;
+        width: 73%;
+        float: right;
+        *float: none;
+        line-height: 22px;
+      }
+      
+      hr {
+        margin: 10px 0 10px 0;
+        padding: 0;
+        height: 1px;
+        border: 0;
+        color: #aaa;
+        background-color: #aaa;
+      }
+      
+      hr.floatfix {
+        clear: both;
+        color: #e8e8e6;
+        background-color: #e8e8e6;
+        *margin: 0;
+        *padding: 0;
+      }
+      
+      h1 {
+        font-size: 225%;
+        color: #444;
+        padding: 5px 0 5px 0;
+        margin: 0;
+        width: 100%;
+      }
+      
+      h3,
+      h4,
+      h5 {
+        margin: 10px 40px 10px 40px;
+        padding: 0;
+      }
+      
+      h3 {
+        font-size: 125%;
+        font-style: italic;
+      }
+      
+      h4 {
+        font-size: 125%;
+      }
+      
+      h5 {
+        font-size: 100%;
+      }
+      
+      h6 {
+        width: 100%;
+        margin: 10px 0 15px 0;
+        background-color: #ECECEC;
+        text-align: left;
+        text-indent: 30px;
+        font-size: 100%;
+        font-style: italic;
+        padding-top: 1px;
+        padding-bottom: 1px;
+        border-bottom: solid 1px #bbb;
+        border-top: solid 1px #bbb;
+      }
+      
+      a:link,
+      a:visited {
+        color: #781808;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      a:hover,
+      a:active {
+        color: #222;
+        border-bottom: 1px solid black;
+      }
+
+    -->
+    /*]]>*/
+    </style>
+    <title>SPELLHOLD STUDIOS - Nathaniel NPC Mod</title>
+  </head>
+  <body>
+    <a name="top" id="top"></a>
+    <div id="wrap">
+      <div id="header">
+        
+    <h1>Nathaniel NPC Mod</h1>
+        <strong>A Spellhold Studios mod for Baldur's Gate 2: SoA/ToB</strong>
+        <hr />
+        
+    <p class="about"> Authors: Feuille, Miss Sakaki</p>
+        
+    <p class="about"> <a href="http://spellholdstudios.net/ie/nathaniel">Mod Website</a> 
+      &#8226; <a href="http://www.shsforums.net/index.php?showforum=323">Mod Forum</a> 
+      &#8226; Version: 4.3</p>
+        <hr />
+        
+    <p class="menu"> <a href="#intro">Introduction</a> &middot; <a href="#installation">Installation</a> 
+      &middot; <a href="#faq">Mod Details</a> &middot; <a href="#credits">Credits</a> 
+      &middot; <a href="#version">Version History</a> </p>
+      </div>
+      <div id="maindiv">
+
+        <!-- ================== I n t r o d u c t i o n ================== -->
+        <a name="intro" id="intro"></a>
+        <div class="content">
+          <h2>Introduction</h2>
+          
+      <p>The Nathaniel NPC Mod introduces a new joinable NPC into Baldur's Gate 
+        II: Shadows of Amn and the expansion pack, Throne of Bhaal. Nathaniel 
+        Aplin-Fletcher is a former officer of the Flaming Fist in Baldur's Gate, 
+        and witnessed the devastation that the player's half-brother Sarevok wrought 
+        in the city. As an indirect result of those events, he left the employment 
+        of the guards with several friends and has been travelling since. He is 
+        a skilled fighter, though he suffers from bouts of self-doubt perhaps 
+        due to his lack of physical robustness. For some players he can become 
+        a loyal companion, relying on him or her in times of crisis and in turn 
+        offering his support. For the right male character, a friendship can develop 
+        into something more. The mod contains original items, new characters, 
+        more than 300 voice clips and over 4000 new lines of dialogue.</p>
+      <p>If you want to write your own NPC talking about or with Nathaniel, you 
+        don't have to ask our permission. However, if you'd like to get in contact 
+        and get some ideas going, we're more than willing to put the work in.</p>
+      <h4><b>Portrait Previews:</b></h4>
+          <table width="7%" border="0" align="center">
+        <tr> 
+          <td height="193" width="20%"><img src="portraits/NATH1M.bmp" width="110" height="170"></td>
+          <td height="193" width="12%"><img src="portraits/NATH2M.bmp" width="110" height="170"></td>
+          <td height="193" width="68%"><img src="portraits/NATH3M.bmp" width="110" height="170"></td>
+        </tr>
+        <tr> 
+          <td height="2" width="20%"> 
+            <div align="center"><font size="1">Portrait #1 by Feuille</font></div>
+          </td>
+          <td height="2" width="12%"> 
+            <div align="center"><font size="1">Portrait #2 by K'aeloree</font></div>
+          </td>
+          <td height="2" width="68%"> 
+            <div align="center"><font size="1">Portrait #3 by Amaurea</font></div>
+          </td>
+        </tr>
+      </table>
+      <p>&nbsp; </p>
+          
+      <address> <span class="footer">Nathaniel &gt; Introduction</span> &#8226;<a href="#top">BACK 
+      TO TOP</a> </address>
+        </div>
+
+        <!-- ================== I n s t a l l a t i o n ================== -->
+        <a name="installation" id="installation"></a>
+        <div class="content">
+          <h2>Installation</h2>
+          
+      <div class="important">
+<p>If you have not already done so, obtain and install the latest official 
+          Bioware patch from <a href="http://www.bioware.com">www.bioware.com</a> 
+          before installing Nathaniel. If you have other mods already installed, 
+          uninstall them before installing the patch. Like the majority of mods 
+          created for the Infinity Engine, Nathaniel is made using WeiDU, meaning 
+          that it adds to but does not overwrite game files. If you plan to install 
+          any non-WeiDU mods, install them before Nathaniel and any other WeiDU 
+          mods. </p>
+          
+      </div>
+          
+      <p>&nbsp;</p>
+      <ol>
+        <li>Make sure that Baldur's Gate II or any related programs are not running.</li>
+        <li>Place Nathaniel.exe anywhere on your drive.</li>
+        <li>Open Nathaniel.exe and follow the on-screen instructions. The installer 
+          will extract the necessary files into your game directory.</li>
+        <li>A DOS window will open automatically and ask whether you want to install 
+          Nathaniel.</li>
+        <li>WeiDU will copy the necessary files into the game and compile dialogues 
+          and scripts. This will take a few minutes.</li>
+        <li>WeiDU will decompress the audio files packaged with Nathaniel. The 
+          window will fill with text.</li>
+        <li>Choose whichever optional components you wish to install, and choose 
+          a portrait.</li>
+        <li>Start playing! You do not need to start a new game to have Nathaniel 
+          in your party.</li>
+      </ol>
+      <p>&nbsp;</p>
+      <h4><b>Uninstalling Nathaniel</b></h4>
+      <p>If you wish to uninstall Nathaniel, run Setup-Nathaniel.exe again and 
+        select the U option.</p>
+      <p>&nbsp;</p>
+      <h4><b>Solaufein conflict:</b></h4>
+      <p>Installing this content results in Nathaniel breaking up with the PC 
+        if the <a href="http://www.weidu.org/main.html">Solaufein Romance</a> 
+        progresses too far. It affects Nathaniel's behaviour but does not alter 
+        Solaufein's dialogue or script. Do not install this component if you enjoy 
+        the multi-romance aspect of the Solaufein mod. Note that Solaufein is 
+        needed for this component to be installed, but you can install Solaufein 
+        later and return to Setup-Nathaniel.exe for the conflict installation.</p>
+      <h4><b>Kelsey content:</b></h4>
+      <p>Installing this component enables talks to occur between Nathaniel and 
+        <a href="http://www.pocketplane.net/mambo/index.php?option=content&amp;task=blogcategory&amp;id=81&amp;Itemid=66">Kelsey</a>. 
+        Note that Kelsey is needed for this component to be installed, but you 
+        can install Kelsey later and return to Setup-Nathaniel.exe for the banter 
+        installation. </p>
+      <address> <span class="footer">Nathaniel &gt; Installation</span> <a href="#top">BACK 
+      TO TOP</a> </address>
+    </div>
+
+        <!-- ================== F A Q ================== -->
+        <a name="faq" id="faq"></a>
+        <div class="content">
+          
+      <h2>Mod Details</h2>
+          
+      <p>Though you do not need to start a new game to have Nathaniel join your 
+        party, as with all NPCs it is advisable to have him join early in order 
+        to view all his banters and interjections. He banters with all the Bioware 
+        joinable NPCs and comments on many of the quests available. Nathaniel 
+        is found in the Docks District of Athkatla and will initiate dialogue 
+        when you are close enough. He can also be summoned via the Fate Spirit 
+        in Throne of Bhaal.</p>
+      <p><br />
+        <b>ROMANCING NATHANIEL</b></p>
+      <p>Nathaniel romances human, elven or half-elven males of Good or Lawful 
+        Neutral alignment providing they are not thieves. Note that he will romance 
+        druids, but not males of other classes who are aligned True Neutral.</p>
+      <p>Nathaniel's lovetalk music is an excerpt from B.G.N., Variation XII of 
+        Elgar's Enigma Variations.</p>
+      <p>&nbsp;</p>
+      <p><b>PLAYER-INITIATED DIALOGUES </b></p>
+      <p>If you are romancing Nathaniel, you have the opportunity to initiate 
+        dialogue with him if you click the Talk icon and click on Nathaniel's 
+        portrait or avatar. He too will periodically initiate dialogues separately 
+        from the timed lovetalks. Note that options available change greatly throughout 
+        the romance, so check often. If you are not comfortable with the content, 
+        ask him to stop and he will; there is also an opportunity to break off 
+        the romance. It is possible to platonically talk to Nathaniel if you are 
+        not romancing him, using the same method. This technology was originally 
+        developed by Jason Compton and Jesse Meyers for the Kelsey NPC mod.</p>
+      <p>&nbsp;</p>
+      <p><b>STRING FIXER</b></p>
+      <p>If you see random bits of text coming up when you click on Nathaniel, 
+        select Nathaniel and press K. After a short cutscene, the problem should 
+        be fixed.</p>
+      <p>&nbsp; </p>
+          
+      <address> <span class="footer">Nathaniel &gt; Mod Details</span> &#8226;<a href="#top">BACK 
+      TO TOP</a> </address>
+        </div>
+
+        
+    <!-- ================== C r e d i t s ================== --> <a name="compat" id="credits"></a> 
+    <div class="content"> 
+      <h2>Compatibility</h2>
+      <p>There have been incidences where not all of Nathaniel's audio is decoded 
+        at installation, resulting in a message saying that oggdec "cannot open 
+        output file". If this occurs, run the file "nathaudio.bat" which will 
+        have appeared in your game directory and the audio will be fully decoded.</p>
+      <p>Any non-WeiDU mods or patches must be installed BEFORE Nathaniel.</p>
+      <p>Nathaniel has been tested in conjunction with a large number of WeiDU 
+        mods and has been compatible with them. Note that Virtue must be installed 
+        AFTER Nathaniel. In addition, if you wish to alter Nathaniel using a tweak- 
+        or fixpack, you should install the pack after Nathaniel.</p>
+      <p>-Revised HLA table component of Refinements makes Nathaniel's custom 
+        items unusable</p>
+      <p>-Solo With A Party incompatibility: both mods include unremovable items 
+        in the same inventory slots</p>
+      <p>&nbsp;</p>
+      <address> <span class="footer">Nathaniel &gt; Compatibility</span> &#8226;<a href="#top">BACK 
+      TO TOP</a> </address>
+    </div>
+    <p><!-- ================== C r e d i t s ================== --> </p>
+    <div class="content">
+          <h2>Credits</h2>
+          
+      <p>&nbsp;</p>
+      <p>Nathaniel technical and audiovisual elements are copyright 2005-7 Hannah 
+        Powell-Smith and Fay Ikin unless otherwise noted. Nathaniel is not developed, 
+        supported, or endorsed by BioWare or Interplay/Black Isle.</p>
+      <p>REDISTRIBUTION NOTE: Nathaniel was created to be freely enjoyed by all 
+        Baldur's Gate 2 players. However, Nathaniel may not be sold, published, 
+        compiled or redistributed in any form without the consent of its authors.</p>
+      <p>&nbsp;</p>
+      <p><span class="t1">Authors:</span> <span class="t2">Hannah Powell-Smith 
+        (Miss Sakaki), Fay Ikin (Feuille)</span></p>
+          
+      <p><span class="t1">BAM graphics:</span> <span class="t2">Sir-Kill</span></p>
+      <p><span class="t1">Voice actors:</span> <span class="t2">Leo Ikin (Nathaniel), Philip Smith (Latimer), Fay 
+        Ikin (Mayonna and Asalie)</span></p>
+      <p><span class="t1">Testers:</span> <span class="t2">AkashaCatBat, ark7, 
+        Cathy Cooper, eachna, Emzeror, Fantasy, Garfield, Hannya, Kitana, Lilly, 
+        Nix, RavenBlack, SnowKing, SteveThaiBinh, toby_fowl, Undertaker, vera_kdt, 
+        Zander</span></p>
+      <p>&nbsp;</p>
+      <hr class="floatfix" />
+      <p>Thanks to all our beta testers for their hard work. Special thanks to 
+        Nix, who has worked tirelessly to find Nathaniel bugs and help us squash 
+        them. Thanks to K'aeloree and Amaurea for making Nathaniel's alternate 
+        portraits. Thanks to Sir-Kill for BAM design. Thanks to Spellhold Studios 
+        for hosting the Nathaniel mod, and to Chosen of Mystra for early hosting. 
+        Thanks to everyone who has given us moral support and suggestions, and 
+        helped us out with technical problems. Finally, a big thank you to Leo 
+        for taking time out from his physics schedule to record for us!<!-- Don't remove the <hr /> unless you have text following the last "t2" in this <div>! --> 
+      </p>
+      <p>&nbsp; </p>
+      <p><b>Nathaniel utilises the following tools and resources:</b></p>
+      <p><a href="http://weidu.org/">WeiDU</a> by Wesley Weimer, maintained by 
+        the bigg</p>
+      <p><a href="http://www.idi.ntnu.no/%7Ejoh/ni/">Near Infinity</a> (Infinity 
+        Engine browser and editor) by Jon Olav Hauglid</p>
+      <p><a href="http://infexp.sourceforge.net/">Infinity Explorer</a></p>
+      <p><a href="http://forums.gibberlings3.net/index.php?showforum=137">DLTCEP</a> 
+        by Avenger</p>
+      <p><a href="http://www.mud-master.com/shadowkeeper/">Shadow Keeper</a></p>
+      <p><a href="http://www.context.cx/">ConTEXT Programmers' Editor</a></p>
+      <p><a href="http://audacity.sourceforge.net/">Audacity</a> audio editing 
+        software</p>
+      <p><a href="http://www.adobe.com">Adobe Photoshop and Adobe Photoshop Elements</a> 
+        by Adobe</p>
+      <p><a href="http://iesdp.gibberlings3.net/main.htm">IESDP</a> maintained 
+        by igi</p>
+      <p><a href="http://www.vorbis.com/">OggVorbis</a> audio encoder</p>
+      <p><a href="http://winlame.sourceforge.net/">winLAME</a> audio encoder </p>
+      <address> <span class="footer">Nathaniel &gt; Credits</span> &#8226;<a href="#top">BACK 
+      TO TOP</a> </address>
+        </div>
+
+        <!-- ================== V e r s i o n   H i s t o r y ================== -->
+        <a name="version" id="version"></a>
+        <div class="content">
+          <h2>Version history</h2>
+ 
+      <h6>Version 4.3</h6>
+      <ul>
+        <li>More bugfixes thanks to the BWP Fixpack & Lollorian</li>
+      </ul>
+
+      <h6>Version 4.2</h6>
+      <ul>
+        <li>Major bugfixing</li>
+      </ul>
+      <h6>Version 4.1</h6>
+      <ul>
+        <li>Stabilised scripting in a way that actually makes it stable</li>
+        <li>Minor dialogue editing</li>
+      </ul>
+      <h6>Version 4</h6>
+      <ul>
+        <li>Added ToB content</li>
+        <li>Dialogue editing</li>
+        <li>Stabilised scripting</li>
+        <li>Updated to WeiDU-202</li>
+        <li>Removed custom kensai kit</li>
+      </ul>
+      <h6>Version 3.1</h6>
+      <ul>
+        <li>Small interjection bug fixed</li>
+        <li>Haer'Dalis interjection fixed</li>
+        <li>Flirt bug fixed</li>
+        <li>Fixed a problem with the lovetalks that occurred if Bodhi did not 
+          kidnap Nathaniel</li>
+        <li>Updated to WeiDU-197</li>
+      </ul>
+      <h6>Version 3</h6>
+      <ul>
+        <li>Typographical errors fixed and major dialogue changes and additions</li>
+        <li>Added the possibility of remaining friends with Nathaniel after Jaheira's 
+          and Aerie's romance conflicts under certain circumstances</li>
+        <li>Flirt, interjection and banter timing bugs fixed</li>
+        <li>Updated to WeiDU-196</li>
+        <li>Added Kelsey banters</li>
+        <li>Made a custom kensai kit to prevent dual-classing of Nathaniel</li>
+        <li>Enabled completion of the romance if Bodhi does not kidnap Nathaniel</li>
+        <li>Trimmed audio clips</li>
+        <li>Converted dialogue files to d/tra format for future translations</li>
+        <li>Changed Nathaniel's default portrait</li>
+        <li>Removed the Korgan conflict so they can be in the party without fighting</li>
+      </ul>
+      <h6>Version 2</h6>
+      <ul>
+        <li>Updated to WeiDU-185</li>
+        <li>Made Solaufein installation actually work</li>
+        <li>Shuffled around early love- and friendship talks</li>
+        <li>Several dialogue additions</li>
+        <li>Fixed a couple of flirt and interjection bugs</li>
+        <li>Switched ring-hand</li>
+        <li>Adjusted audio volume</li>
+      </ul>
+      <h6>Version 1</h6>
+          
+      <ul>
+        <li>Initial public release</li>
+      </ul>
+          
+      <address> <span class="footer">Nathaniel &gt; Version History</span> &#8226;<a href="#top">BACK 
+      TO TOP</a> </address>
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>

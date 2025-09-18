@@ -1,0 +1,7 @@
+IF
+Global("FHNathVampire","GLOBAL",1)
+THEN
+RESPONSE #100
+SetGlobal("FHNathVampire","GLOBAL",2)
+CreateCreature("VampNath",[1473.332],2)
+END

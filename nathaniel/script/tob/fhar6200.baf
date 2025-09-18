@@ -1,0 +1,179 @@
+//No romance or Anomen - godhood good
+
+IF
+Global("StartEndBios","AR6200",1)
+InParty("Nath")
+Global("FHNathBio","GLOBAL",0)
+OR(2)
+!InParty("Anomen")
+Alignment("Anomen",CHAOTIC_NEUTRAL)
+!Global("AnomenRomanceActive","GLOBAL",2)
+!Global("NathRomanceActive","GLOBAL",2)
+Global("PlayerChoseEssence","GLOBAL",1)
+GlobalLT("PPEvilChoices","GLOBAL",3)
+THEN
+RESPONSE #100
+SetGlobal("FHNathBio","GLOBAL",1)
+TextScreen("FHNath01")
+SmallWait(1)
+Continue()
+END
+
+//No romance or Anomen - godhood evil
+
+IF
+Global("StartEndBios","AR6200",1)
+InParty("Nath")
+Global("FHNathBio","GLOBAL",0)
+OR(2)
+!InParty("Anomen")
+Alignment("Anomen",CHAOTIC_NEUTRAL)
+!Global("AnomenRomanceActive","GLOBAL",2)
+!Global("NathRomanceActive","GLOBAL",2)
+Global("PlayerChoseEssence","GLOBAL",1)
+GlobalGT("PPEvilChoices","GLOBAL",2)
+THEN
+RESPONSE #100
+SetGlobal("FHNathBio","GLOBAL",1)
+TextScreen("FHNath02")
+SmallWait(1)
+Continue()
+END
+
+//No romances, Anomen in party - doesn't matter whether ascended
+
+IF
+Global("StartEndBios","AR6200",1)
+InParty("Nath")
+Global("FHNathBio","GLOBAL",0)
+InParty("Anomen")
+!Alignment("Anomen",CHAOTIC_NEUTRAL)
+!Global("AnomenRomanceActive","GLOBAL",2)
+!Global("NathRomanceActive","GLOBAL",2)
+THEN
+RESPONSE #100
+SetGlobal("FHNathBio","GLOBAL",1)
+TextScreen("FHNath03")
+SmallWait(1)
+Continue()
+END
+
+//Anomen romance active
+
+IF
+Global("StartEndBios","AR6200",1)
+InParty("Nath")
+Global("FHNathBio","GLOBAL",0)
+InParty("Anomen")
+Global("AnomenRomanceActive","GLOBAL",2)
+!Alignment("Anomen",CHAOTIC_NEUTRAL)
+Global("PlayerChoseEssence","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("FHNathBio","GLOBAL",1)
+TextScreen("FHNath04")
+SmallWait(1)
+Continue()
+END
+
+//In romance, chose essence
+
+IF
+Global("StartEndBios","AR6200",1)
+InParty("Nath")
+Global("FHNathBio","GLOBAL",0)
+Global("NathRomanceActive","GLOBAL",2)
+Global("PlayerChoseEssence","GLOBAL",1)
+THEN
+RESPONSE #100
+SetGlobal("FHNathBio","GLOBAL",1)
+TextScreen("FHNath05")
+SmallWait(1)
+Continue()
+END
+
+//In romance, settle down, no kids
+
+IF
+Global("StartEndBios","AR6200",1)
+InParty("Nath")
+Global("FHNathBio","GLOBAL",0)
+Global("NathRomanceActive","GLOBAL",2)
+Global("PlayerChoseEssence","GLOBAL",0)
+Global("FHSettle","GLOBAL",1)
+!Global("FHKids","GLOBAL",1)
+!Alignment(Player1,MASK_EVIL)
+!Alignment(Player1,CHAOTIC_NEUTRAL)
+!Class(Player1,THIEF_ALL)
+THEN
+RESPONSE #100
+SetGlobal("FHNathBio","GLOBAL",1)
+TextScreen("FHNath06")
+SmallWait(1)
+Continue()
+END
+
+//In romance, have kids
+
+IF
+Global("StartEndBios","AR6200",1)
+InParty("Nath")
+Global("FHNathBio","GLOBAL",0)
+Global("NathRomanceActive","GLOBAL",2)
+Global("PlayerChoseEssence","GLOBAL",0)
+Global("FHKids","GLOBAL",1)
+!Alignment(Player1,MASK_EVIL)
+!Alignment(Player1,CHAOTIC_NEUTRAL)
+!Class(Player1,THIEF_ALL)
+THEN
+RESPONSE #100
+SetGlobal("FHNathBio","GLOBAL",1)
+TextScreen("FHNath07")
+SmallWait(1)
+Continue()
+END
+
+//In romance, don't settle
+
+IF
+Global("StartEndBios","AR6200",1)
+InParty("Nath")
+Global("FHNathBio","GLOBAL",0)
+Global("NathRomanceActive","GLOBAL",2)
+Global("PlayerChoseEssence","GLOBAL",0)
+Global("FHKids","GLOBAL",0)
+OR(2)
+Global("FHSettle","GLOBAL",0)
+Global("FHSettle","GLOBAL",2)
+!Alignment(Player1,MASK_EVIL)
+!Alignment(Player1,CHAOTIC_NEUTRAL)
+!Class(Player1,THIEF_ALL)
+THEN
+RESPONSE #100
+SetGlobal("FHNathBio","GLOBAL",1)
+TextScreen("FHNath08")
+SmallWait(1)
+Continue()
+END
+
+//In romance, Charname is evil/rogueish
+
+IF
+Global("StartEndBios","AR6200",1)
+InParty("Nath")
+Global("FHNathBio","GLOBAL",0)
+Global("NathRomanceActive","GLOBAL",2)
+Global("PlayerChoseEssence","GLOBAL",0)
+OR(5)
+ReputationLT(Player1,8)
+Alignment(Player1,MASK_EVIL)
+Alignment(Player1,CHAOTIC_NEUTRAL)
+Class(Player1,THIEF_ALL)
+GlobalGT("PPEvilChoices","GLOBAL",2)
+THEN
+RESPONSE #100
+SetGlobal("FHNathBio","GLOBAL",1)
+TextScreen("FHNath09")
+SmallWait(1)
+Continue()
+END

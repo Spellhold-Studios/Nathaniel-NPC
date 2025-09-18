@@ -1,0 +1,12 @@
+IF
+See("Nath")
+InParty("Nath")
+!StateCheck("Nath",CD_STATE_NOTVALID)
+Global("TalkAvery","GLOBAL",0)
+Global("FHSeeNath","GLOBAL",0)
+CombatCounter(0)
+THEN
+RESPONSE #100
+SetGlobal("FHSeeNath","GLOBAL",1)
+StartDialogNoSet(Player1)
+END

@@ -1,0 +1,27 @@
+IF
+Global("NATHExists","AR0300",0)
+XPLT(Player1,500001)
+THEN
+RESPONSE #100
+SetGlobal("NATHExists","AR0300",1)
+CreateCreature("NATH07",[3966.962],3)
+END
+
+IF
+Global("NATHExists","AR0300",0)
+XPGT(Player1,500000)
+XPLT(Player1,1000001)
+THEN
+RESPONSE #100
+SetGlobal("NATHExists","AR0300",1)
+CreateCreature("NATH08",[3966.962],3)
+END
+
+IF
+Global("NATHExists","AR0300",0)
+XPGT(Player1,1000000)
+THEN
+RESPONSE #100
+SetGlobal("NATHExists","AR0300",1)
+CreateCreature("NATH10",[3966.962],3)
+END

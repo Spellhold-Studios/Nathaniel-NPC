@@ -1,0 +1,87 @@
+IF
+Global("FHAnoFight","GLOBAL",1)
+See("Anomen")
+!Dead("Anomen")
+THEN
+RESPONSE #100
+EquipMostDamagingMelee()
+AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+HPPercentLT(Myself,50)
+HasItem("POTN55",Myself)
+THEN
+RESPONSE #100
+UseItem("POTN55",Myself)
+END
+
+IF
+HPPercentLT(Myself,50)
+HasItem("POTN52",Myself)
+THEN
+RESPONSE #100
+UseItem("POTN52",Myself)
+END
+
+IF
+HaveSpell(0)
+!Range(LastSeenBy(Myself),6)
+!GlobalTimerNotExpired("KaiAttack","LOCALS")
+THEN
+RESPONSE #100
+MoveToObject(LastAttackerOf(Myself))
+END
+
+IF
+HaveSpell(0)
+Range(LastSeenBy(Myself),6)
+!GlobalTimerNotExpired("KaiAttack","LOCALS")
+THEN
+RESPONSE #100
+SetGlobalTimer("KaiAttack","LOCALS",10)
+Spell(Myself,0)
+AttackReevaluate(LastAttackerOf(Myself),45)
+END
+
+IF
+Range(LastSeenBy(Myself),6)
+GlobalTimerNotExpired("KaiAttack","LOCALS")
+THEN
+RESPONSE #100
+AttackReevaluate(LastAttackerOf(Myself),30)
+END
+
+IF
+AttackedBy([ANYONE],DEFAULT)
+THEN
+RESPONSE #100
+Attack(LastAttackerOf(Myself))
+END
+
+IF
+OR(2)
+Dead("Anomen")
+!Detect("Anomen")
+CombatCounter(0)
+!Allegiance(Myself,ENEMY)
+Global("FHAnoFight","GLOBAL",1)
+See([PC])
+THEN
+RESPONSE #100
+SetGlobal("FHAnoFight","GLOBAL",2)
+SetGlobal("FHKilledAno","GLOBAL",1)
+StartDialogueNoSet(Player1)
+END
+
+IF
+OR(2)
+Dead("Anomen")
+!Detect("Anomen")
+CombatCounter(0)
+Global("FHAnoFight","GLOBAL",1)
+!See([PC])
+THEN
+RESPONSE #100
+EscapeArea()
+END
