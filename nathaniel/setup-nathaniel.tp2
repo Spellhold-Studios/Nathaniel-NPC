@@ -9,6 +9,7 @@ README ~Nathaniel/NathanielReadme.htm~
 AUTO_TRA ~Nathaniel/%s~
 
 LANGUAGE ~English~ ~English~ ~Nathaniel/English/Setup-Nathaniel.tra~
+LANGUAGE ~Schinese~ ~schinese~ ~Nathaniel/schinese/Setup-Nathaniel.tra~
 
 BEGIN @0
 
